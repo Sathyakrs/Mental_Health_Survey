@@ -8,14 +8,14 @@ st.set_page_config(page_title="Depression Prediction", page_icon="⚕️")  #str
 #mode and preprocessor loading
 @st.cache_resource
 def load_model():
-    model = torch.load("/Users/sathya-22886/Downloads/MHS/mlp_depression_model.pth", map_location=torch.device("cpu"))
+    model = torch.load("mlp_depression_model.pth", map_location="cpu")
     return model
 
 @st.cache_resource
 def load_preprocessor():
-    return joblib.load("/Users/sathya-22886/Downloads/MHS/preprocessor.pkl")
+    return joblib.load("preprocessor.pkl")
 
-model_state_dict = torch.load("/Users/sathya-22886/Downloads/MHS/mlp_depression_model.pth", map_location="cpu")
+model_state_dict = torch.load("mlp_depression_model.pth", map_location="cpu")
 
 # building the same model architecture
 class MLP(nn.Module):
